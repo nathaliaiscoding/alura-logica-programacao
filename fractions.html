@@ -1,0 +1,26 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    let canvas = document.querySelector('canvas');
+    let brush = canvas.getContext('2d');   
+
+    function drawSquare(x, y, color) {
+
+        brush.fillStyle = color;
+        brush.fillRect(x,y,50,50);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(x,y,50,50);
+
+    }
+
+    brush.font = '20px Monospace';
+    brush.fillStyle = 'black';
+    brush.fillText('Qual é a fração?', 50, 30);
+
+    drawSquare(50,50,'green');
+    drawSquare(100,50,'green');    
+    drawSquare(150,50,'green');
+    drawSquare(200,50,'white');
+
+</script>
