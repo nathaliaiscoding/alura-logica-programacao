@@ -1,0 +1,48 @@
+<canvas width="600" height="400"></canvas>
+<br />
+Escolha uma cor <input type="color" />
+
+<script>
+  let canvas = document.querySelector("canvas");
+  let brush = canvas.getContext("2d");
+  brush.fillStyle = "lightgray";
+  brush.fillRect(0, 0, 600, 400);
+  let input = document.querySelector("input");
+  let radius = 10;
+  let drawing = false;
+
+  canvas.onmousemove = function (event) {
+    if (drawing) {
+      // gets mouse position
+      let x = event.pageX - canvas.offsetLeft;
+      let y = event.pageY - canvas.offsetTop;
+
+      // changes the circle size
+      if (event.shiftKey && event.altKey) {
+        alert("Aperte uma tecla por vez, por favor!");
+      } else if (event.shiftKey && radius + 10 <= 40) {
+        radius = radius + 10;
+      } else if (event.altKey && radius - 5 >= 10) {
+        radius = radius - 5;
+      }
+
+      // draw the circle
+      brush.fillStyle = input.value;
+      brush.beginPath();
+      brush.arc(x, y, radius, 0, 2 * Math.PI);
+      brush.fill();
+    }
+  };
+
+  canvas.oncontextmenu = function () {
+    return false;
+  };
+
+  canvas.onmousedown = function () {
+    drawing = true;
+  };
+
+  canvas.onmouseup = function () {
+    drawing = false;
+  };
+</script>
