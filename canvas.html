@@ -1,4 +1,9 @@
 <canvas width="600" height="400"></canvas>
 <script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400); // determina o posicionamento no eixo xy e o tamanho da forma - atenção pois não terá mais que o tamanho do canvas
     
 </script>
