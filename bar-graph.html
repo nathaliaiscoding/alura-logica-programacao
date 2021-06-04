@@ -1,0 +1,42 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    let canvas = document.querySelector('canvas');
+    let brush = canvas.getContext('2d');
+
+    let serie2015 = [50, 25, 20, 5];
+    let serie2016 = [65, 20, 13, 2];
+    let colors = ['blue', 'green', 'yellow', 'red'];
+
+    function drawBarGraph(x, y, series, color, text) {
+        
+        brush.fillStyle = color[0];
+        brush.fillRect(x,y,50,series[0]);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(x,y,50,series[0]);
+
+        brush.fillStyle = colors[1];
+        brush.fillRect(x,y + series[0],50,series[1]);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(x,y + series[0],50,series[1]);
+
+        brush.fillStyle = color[2];
+        brush.fillRect(x,y + series[1] + series[0],50,series[2]);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(x,y + series[1] + series[0],50,series[2]);
+
+        brush.fillStyle = color[3];
+        brush.fillRect(x,y + series[1] + series[2] + series[0],50,series[3]);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(x,y + series[1] + series[2] + series[0],50,series[3]);
+
+        brush.font = '30 Monospace';
+        brush.fillStyle = 'black';
+        brush.fillText(text, x, y - 10);
+
+    }
+
+drawBarGraph(50, 50, serie2015, colors, '2015');
+drawBarGraph(150, 50, serie2016, colors, '2016');
+</script>
