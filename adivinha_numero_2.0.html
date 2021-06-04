@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<h1>Em que número eu estou pensado?</h1>
+<input>
+<button>Chutar!</button>
+
+<script>
+let numero = Math.round(Math.random() * 10); // numero randomico para ser acertado
+let input = document.querySelector('input'); input.focus(); // seletor do input
+
+function verifica() { // funcao para verificar se o numero esta certo ou errado
+    if (input.value == numero) {
+        alert('UAU! Você acertou!') // acertou
+        numero = Math.round(Math.random() * 10); // muda o numero para proxima rodada
+    }  else {
+        alert('Xiii...Você errou!'); // errou
+    }
+    input.value = ""; // zera campo do input
+    input.focus(); // devolve o foco pro input
+}
+
+let button = document.querySelector('button'); // seletor do button
+button.onclick = verifica; // quando clica o button roda a funcao para verificar
+
+</script>

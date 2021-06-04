@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<title>Pergunte ao Polvo</title>
+<script>
+
+    let sim = "Sim";
+    let nao = "Não";
+
+    let pergunta = prompt('Faça a sua pergunta');
+
+    let ods = Math.round(Math.random() * 100);
+
+    if (ods <= 50) {
+        document.write(sim);
+    } else {
+        document.write(nao);
+    }
+</script>

@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+<script>
+
+    var loginCadastrado = prompt("Cadastre seu login");
+    var senhaCadastrada = prompt("Cadastre sua senha");
+
+    contador = 1;
+    while(contador <= 3) {
+
+    var loginInformado = prompt("Informe seu login");
+    var senhaInformada = prompt("Informe sua senha");
+
+    if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) {
+
+        alert("Bem-vindo ao sistema, " + loginInformado);
+
+        contador = 3; // acertou, então faço o gasto de todas as tentativas para sair do loop. Lá embaixo vai incrementar + 1! 
+
+    } else {
+
+        if (contador == 3) {
+            alert("Número permitido de tentativas ultrapassado!");
+        } else {
+            alert("Login inválido. Tente novamente");
+        }
+    }
+
+    // vai para a próxima tentativa
+    contador++;
+    }
+        
+    
+</script>

@@ -1,0 +1,20 @@
+<meta charset="utf-8">
+
+<script>
+
+let numero = Math.round(Math.random() * 10);
+let tentativas = 1  ;
+while(tentativas <= 3) {
+    let guess = prompt("Qual o número que estou pensando, entre 1 e 10?");
+    if (guess == numero) {
+        alert('Você acertou!');
+        break;
+    } else {
+        alert('Você errou!')
+        if (tentativas == 3) {
+            alert('Acabaram as suas tentativas. GAME OVER!')
+        }
+    }
+    tentativas++;
+}
+</script>

@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<script>
+// calcula IMC
+function calculaImc(altura, peso) {
+    return Math.round(peso / (altura * altura));
+}
+
+// escreve o resultado na tela
+function escreve(resultado) {
+    document.write(resultado + '<br>');
+}
+
+// classifica o IMC
+function tabelaImc(imc) {
+    if (imc <= 18) {
+        return 'abaixo do peso';
+    } else if (imc <= 25 && imc > 18) {
+        return 'com o peso normal';
+    } else if (imc <= 30 && imc > 25 ) {
+        return 'com sobrepeso';
+    } else if (imc <= 35 && imc > 30 ) {
+        return 'com obesidade grau I';
+    } else if (imc < 40 && imc > 35 ) {
+        return 'com obesidade grau II';
+    } else if (imc >= 40 ) {
+        return 'com obesidade mórbida';
+    } 
+}
+
+let nome = prompt('Digite o seu nome.').trim();
+let altura = prompt(nome + ', digite a sua altura em centímetros.') / 100   ;
+let peso = prompt(nome + ', digite o seu peso em quilos.');
+let imc = calculaImc(altura, peso);
+let classifica = tabelaImc(imc);
+
+escreve(nome + ', seu IMC é: ' + imc + '. Você está ' + classifica + '.');
+</script>

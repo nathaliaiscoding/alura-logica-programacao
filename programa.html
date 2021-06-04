@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<script>
+    document.write("Flávio nasceu em " + (2016 - 39) + "<br>");
+    document.write("Joaquim nasceu em " + (2016 - 20) + "<br>");
+    document.write("Barney nasceu em " + (2016 - 40) + "<br>");
+
+    function pulaLinha() {
+        document.write('<br>');
+        document.write('<hr>')
+        document.write('<br>');
+    }
+
+    function mostra(resultado) { 
+    document.write('<big>' + resultado + '</big>');
+    pulaLinha();
+}
+
+let gapIdade = 1991 - 1982;
+
+mostra('Nossa diferença de idade é ' + gapIdade + ' anos.');
+
+
+let anos = 2021 - 1500;
+let numeroGeracoes = anos / 28;
+
+mostra('Desde 1500 tiveram ' + Math.round(numeroGeracoes) + ' gerações de Brasileiros.');
+
+let ano = 2021;
+mostra('Eu nasci em: ' + (ano - 30));
+mostra('Mozão nasceu em:' + (ano - 31) );
+mostra('Neném nasceu em: ' + (ano - 14));
+
+
+for( var i = 0; i < 10; i++ ) {
+    document.write( "O resultado é " + (2 * i) );
+}
+
+var i = 0;
+while(i < 10) {
+    document.write( "<br>O resultado é " + (2 * i) );
+    i++;
+}
+</script>
