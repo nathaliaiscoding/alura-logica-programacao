@@ -1,0 +1,20 @@
+<canvas width="450" height="450"></canvas>
+
+<script>
+  let canvas = document.querySelector("canvas");
+  let brush = canvas.getContext("2d");
+  brush.fillStyle = "lightgray";
+  brush.fillRect(0, 0, 450, 450);
+
+  function drawSetSquare(xa, ya, xc, yc, color) {
+    brush.fillStyle = color;
+    brush.beginPath();
+    brush.moveTo(xa, ya);
+    brush.lineTo(xa, yc);
+    brush.lineTo(xc, yc);
+    brush.fill();
+  }
+
+  drawSetSquare(50, 50, 400, 400, "black");
+  drawSetSquare(100, 175, 275, 350, "white");
+</script>
