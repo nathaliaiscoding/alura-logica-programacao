@@ -24,7 +24,15 @@
     var x = event.pageX - canvas.offsetLeft;
     var y = event.pageY - canvas.offsetTop;
 
-    // lógica de acerto?
+    // shoot logic
+    if (
+      x > 300 - radius &&
+      x < 300 + radius &&
+      y > 200 - radius &&
+      y < 200 + radius
+    ) {
+      alert("Got it!");
+    }
   }
 
   canvas.onclick = shoot;
