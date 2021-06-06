@@ -7,7 +7,7 @@
   brush.fillStyle = "lightgray";
   brush.fillRect(0, 0, 600, 400);
 
-  let x = 20;
+  let x = 0;
 
   function drawCircle(x, y, radius) {
     brush.fillStyle = "blue";
@@ -20,11 +20,20 @@
     brush.clearRect(0, 0, 600, 400);
   }
 
+  let x_way = 1;
+
   function updateCanvas() {
     clearCanvas();
+
+    if (x > 600) {
+      x_way = -1;
+    } else if (x < 0) {
+      x_way = 1;
+    }
+
     drawCircle(x, 20, 10);
-    x++;
+    x = x + x_way;
   }
 
-  setInterval(updateCanvas, 10);
+  setInterval(updateCanvas, 1);
 </script>
