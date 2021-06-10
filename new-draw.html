@@ -1,0 +1,87 @@
+<meta charset="UTF-8" />
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+  function drawSquare(x, y, size, color) {
+    brush.fillStyle = color;
+    brush.fillRect(x, y, size, size);
+    brush.fill();
+  }
+
+  function drawCircle(x, y, radius, color) {
+    brush.fillStyle = color;
+    brush.beginPath();
+    brush.arc(x, y, radius, 0, 2 * 3.14);
+    brush.fill();
+  }
+
+  function drawPalette() {
+    drawSquare(xRed, ySquares, squareSize, "red");
+    drawSquare(xGreen, ySquares, squareSize, "green");
+    drawSquare(xBlue, ySquares, squareSize, "blue");
+  }
+
+  function checkMouseMovements(event) {
+    var x = event.pageX - canvas.offsetLeft;
+    var y = event.pageY - canvas.offsetTop;
+
+    if (draw && availableArea(x, y)) {
+      drawCircle(x, y, 5, currentColor);
+    }
+  }
+
+  function enableDrawing() {
+    draw = true;
+  }
+
+  function disableDrawing() {
+    draw = false;
+  }
+
+  function availableArea(x, y) {
+    if (x >= 0 && x < 3 * squareSize && y >= 0 && y < squareSize) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  var canvas = document.querySelector("canvas");
+  var brush = canvas.getContext("2d");
+  brush.fillStyle = "lightgray";
+  brush.fillRect(0, 0, 600, 400);
+
+  var draw = false;
+  var currentColor = "blue";
+  var xRed = 0;
+  var xGreen = 50;
+  var xBlue = 100;
+  var ySquares = 0;
+  var squareSize = 50;
+
+  drawPalette(); // mostra os quadrados de seleção de cores
+  canvas.onclick;
+  canvas.onmousemove = checkMouseMovements;
+  canvas.onmousedown = enableDrawing;
+  canvas.onmouseup = disableDrawing;
+
+  //  não podemos desenhar na linha inteira na qual a paleta faz parte
+
+  function changeColor(event) {
+    var x = event.pageX - canvas.offsetLeft;
+    var y = event.pageY - canvas.offsetTop;
+
+    // logic
+    if (y < squareSize) {
+      if (x < squareSize) {
+        currentColor = "red";
+      } else if (x < 2 * squareSize && x > squareSize) {
+        currentColor = "green";
+      } else if (x < 3 * squareSize && x > 2 * squareSize) {
+        currentColor = "blue";
+      }
+    }
+  }
+
+  canvas.onclick = changeColor;
+</script>
