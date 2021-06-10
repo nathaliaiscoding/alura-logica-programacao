@@ -1,0 +1,53 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+  let canvas = document.querySelector("canvas");
+  let brush = canvas.getContext("2d");
+
+  brush.fillStyle = 'lightgray';
+  brush.fillRect(0, 0, 600, 400);
+
+  var x = 20;
+  var y = 20;
+
+  // key codes
+  var left = 37; 
+  var up = 38;
+  var right = 39;
+  var bottom = 40;
+
+  // to increment x and y
+  var move = 10;
+
+  function drawCircle(x, y, radius) {
+    brush.fillStyle = 'blue';
+    brush.beginPath();
+    brush.arc(x, y, radius, 0, 2 * Math.PI);
+    brush.fill();
+  }
+
+  function clearCanvas() {
+    brush.clearRect(0, 0, 600, 400);
+  }
+
+  function updateCanvas() {
+    clearCanvas();
+    drawCircle(x, y, 10);
+  }
+
+  setInterval(updateCanvas, 20);
+console.log(up);
+  function readKey(event){
+    if (event.keyCode == left) {
+        x = x - move;
+    } else if (event.keyCode == right) {
+        x = x + move;
+    } else if (event.keyCode == up) {
+        y = y - move;
+    } else if (event.keyCode == bottom) {
+        y = y + move;
+    }
+  }
+
+  document.onkeydown = readKey;
+</script>
