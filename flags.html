@@ -1,0 +1,52 @@
+<canvas width="600" height="400"></canvas>
+<script>
+function drawBrazilFlag() {
+    let canvas = document.querySelector('canvas');
+    let brush = canvas.getContext('2d');
+    
+    // green rectangle 
+    brush.fillStyle = 'green';
+    brush.fillRect(0,0,600,400);
+    
+    // yellow triangles
+    brush.fillStyle = 'yellow';
+    brush.beginPath();
+    brush.moveTo(300,50);
+    brush.lineTo(50,200);
+    brush.lineTo(300,350);
+    brush.lineTo(550,200);
+    brush.fill();
+    
+    // blue circle
+    brush.fillStyle = 'darkblue';
+    brush.beginPath();
+    brush.arc(300,200,100,0,2*3.14);
+    brush.fill();
+}
+
+function drawGermanFlag() {
+    let canvas = document.querySelector('canvas');
+    let brush = canvas.getContext('2d');
+
+    brush.fillStyle = 'black';
+    brush.fillRect(0, 0, 600, 133);
+    brush.fillStyle = 'red';
+    brush.fillRect(0, 133, 600, 133);
+    brush.fillStyle = 'yellow';
+    brush.fillRect(0, 266, 600, 133);
+}
+
+var showBrazil = true;
+
+function changeFlag() {
+   
+    if (showBrazil) {
+        drawBrazilFlag();
+    } else {
+        drawGermanFlag();
+    }
+    showBrazil = !showBrazil;
+}
+
+setInterval(changeFlag, 3000);
+</script>
